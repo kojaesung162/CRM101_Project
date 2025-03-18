@@ -1,0 +1,26 @@
+<template>
+  <div class="map-c">
+    <div class="map-container"></div>
+    <template if:true={placeName}>
+      <div class="card-overlay">
+        <c-market-analysis-card></c-market-analysis-card> 
+      </div>
+        <div class="chart-overlay">
+          <div class="legend">
+            <span class="legend-item male">
+                <span class="color-box male-color"></span> 남성
+            </span>
+            <span class="legend-item female">
+                <span class="color-box female-color"></span> 여성
+            </span>
+          </div>
+            <c-seoul-population-chart></c-seoul-population-chart>
+            <c-seoul-population-spark></c-seoul-population-spark>
+        </div>
+    </template>
+      <div class="gradient-wrapper">
+          <svg class="gradient-bar"></svg>
+      </div>
+    </div>
+  </template>
+  

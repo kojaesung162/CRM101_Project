@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>63.0</apiVersion>
+    <isExposed>true</isExposed>
+    <targets>
+        <target>lightningCommunity__Page</target>  <!-- Experience Cloud 지원 -->
+        <target>lightningCommunity__Default</target>  <!-- Experience Cloud 기본 지원 -->
+    </targets>
+</LightningComponentBundle>

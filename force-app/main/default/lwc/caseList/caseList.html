@@ -1,0 +1,117 @@
+<template>
+    <template if:true={hasCases}>
+        <div class="custom-card-wrapper">
+            <div>
+                <strong>{accountName}</strong>
+            </div>
+            <div>
+                <strong>{titleCase}</strong>
+            </div>
+            <lightning-tabset>
+                <!-- 전체 케이스 탭 -->
+                <lightning-tab label="전체 케이스">
+                    <div class="case-container">
+                        <ul class="case-list">
+                            <template for:each={caseList} for:item="cs">
+                                <li key={cs.Id} class="case-item">
+                                    <!-- 케이스 정보 표시 -->
+                                    <div class="case-header">
+                                        <p class="case-title"><span class="case-label">제목:</span> {cs.Subject}</p>
+                                        <p class="case-date"><span class="case-label">문의 날짜:</span> {cs.formattedDate}</p>
+                                    </div>
+                                    <div class="case-progress">
+                                        <span class="case-label">진행상황:</span>
+                                        <lightning-progress-indicator current-step={cs.currentStep} type="path" variant="base">
+                                            <lightning-progress-step label="신규 접수" value="New"></lightning-progress-step>
+                                            <lightning-progress-step label="처리 중" value="Working"></lightning-progress-step>
+                                            <lightning-progress-step label="긴급 상승" value="Escalated"></lightning-progress-step>
+                                            <lightning-progress-step label="완료" value="Closed"></lightning-progress-step>
+                                        </lightning-progress-indicator>
+                                    </div>
+                                </li>
+                            </template>
+                        </ul>
+                    </div>
+                </lightning-tab>
+                
+                <!-- 상태별 탭 -->
+                <lightning-tab label="신규 접수">
+                    <div class="case-container">
+                        <ul class="case-list">
+                            <template for:each={newCases} for:item="cs">
+                                <li key={cs.Id} class="case-item">
+                                    <!-- 케이스 정보 표시 -->
+                                    <div class="case-header">
+                                        <p class="case-title"><span class="case-label">제목:</span> {cs.Subject}</p>
+                                        <p class="case-date"><span class="case-label">문의 날짜:</span> {cs.formattedDate}</p>
+                                    </div>
+                                    <div class="case-progress">
+                                        <span class="case-label">진행상황:</span>
+                                        <lightning-progress-indicator current-step={cs.currentStep} type="path" variant="base">
+                                            <lightning-progress-step label="신규 접수" value="New"></lightning-progress-step>
+                                            <lightning-progress-step label="처리 중" value="Working"></lightning-progress-step>
+                                            <lightning-progress-step label="긴급 상승" value="Escalated"></lightning-progress-step>
+                                            <lightning-progress-step label="완료" value="Closed"></lightning-progress-step>
+                                        </lightning-progress-indicator>
+                                    </div>
+                                </li>
+                            </template>
+                        </ul>
+                    </div>
+                </lightning-tab>
+                <lightning-tab label="처리 중">
+                    <div class="case-container">
+                        <ul class="case-list">
+                            <template for:each={workingCases} for:item="cs">
+                                <li key={cs.Id} class="case-item">
+                                    <!-- 케이스 정보 표시 -->
+                                    <div class="case-header">
+                                        <p class="case-title"><span class="case-label">제목:</span> {cs.Subject}</p>
+                                        <p class="case-date"><span class="case-label">문의 날짜:</span> {cs.formattedDate}</p>
+                                    </div>
+                                    <div class="case-progress">
+                                        <span class="case-label">진행상황:</span>
+                                        <lightning-progress-indicator current-step={cs.currentStep} type="path" variant="base">
+                                            <lightning-progress-step label="신규 접수" value="New"></lightning-progress-step>
+                                            <lightning-progress-step label="처리 중" value="Working"></lightning-progress-step>
+                                            <lightning-progress-step label="긴급 상승" value="Escalated"></lightning-progress-step>
+                                            <lightning-progress-step label="완료" value="Closed"></lightning-progress-step>
+                                        </lightning-progress-indicator>
+                                    </div>
+                                </li>
+                            </template>
+                        </ul>
+                    </div>
+                </lightning-tab>
+                <lightning-tab label="긴급 상승">
+                    <div class="case-container">
+                        <ul class="case-list">
+                            <template for:each={escalatedCases} for:item="cs">
+                                <li key={cs.Id} class="case-item">
+                                    <!-- 케이스 정보 표시 -->
+                                    <div class="case-header">
+                                        <p class="case-title"><span class="case-label">제목:</span> {cs.Subject}</p>
+                                        <p class="case-date"><span class="case-label">문의 날짜:</span> {cs.formattedDate}</p>
+                                    </div>
+                                    <div class="case-progress">
+                                        <span class="case-label">진행상황:</span>
+                                        <lightning-progress-indicator current-step={cs.currentStep} type="path" variant="base">
+                                            <lightning-progress-step label="신규 접수" value="New"></lightning-progress-step>
+                                            <lightning-progress-step label="처리 중" value="Working"></lightning-progress-step>
+                                            <lightning-progress-step label="긴급 상승" value="Escalated"></lightning-progress-step>
+                                            <lightning-progress-step label="완료" value="Closed"></lightning-progress-step>
+                                        </lightning-progress-indicator>
+                                    </div>
+                                </li>
+                            </template>
+                        </ul>
+                    </div>
+                </lightning-tab>
+            </lightning-tabset>
+        </div>
+    </template>
+</template>
+
+
+
+

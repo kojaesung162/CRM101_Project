@@ -1,0 +1,84 @@
+.map-c {
+    position: relative;
+}
+
+.card-overlay {
+    position: absolute;
+    top: 135px;
+    right: 5px;
+    width: 600px;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+    z-index: 9999;
+    background-color: rgba(255, 255, 255, 0.87);
+    transition: opacity 0.3s ease-in-out;
+}
+
+
+.chart-overlay {
+    position: absolute;
+    top: 335px;
+    right: 5px;
+    width: 600px;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+    z-index: 9999;
+    background-color: rgba(255, 255, 255, 0.87);
+    transition: opacity 0.3s ease-in-out;
+}
+
+/* 🔥 범례 스타일 */
+.legend {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 10px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+/* 🔥 범례 아이템 */
+.legend-item {
+    display: flex;
+    align-items: center;
+}
+
+/* 🔥 색상 박스 스타일 */
+.color-box {
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+    margin-right: 5px;
+    border-radius: 4px;
+}
+
+/* 🔥 남성 색상 */
+.male-color {
+    background-color: #3498DB; /* 빨간색 */
+}
+
+/* 🔥 여성 색상 */
+.female-color {
+    background-color: #E74C3C; /* 파란색 */
+}
+
+.gradient-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px; /* 🔥 숫자 포함 크기 조정 */
+    height: 380px; /* 🔥 SVG와 맞춰 크기 증가 */
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+    z-index: 9998;
+    position: absolute;
+    top: 135px;
+    
+   
+    left: 5px;
+    background: rgba(34, 45, 56, 0.7);
+}

@@ -1,0 +1,39 @@
+<template>
+    <div class="knowledge-all-container">
+        <!-- 📌 FAQ 스타일 Knowledge 문서 -->
+        <template if:true={knowledgeArticles.length}>
+            <div class="knowledge-container">
+                <div title="📚 Knowledge 검색">
+                    <p class="selected-product">
+                        <strong>🔍 선택하신 제품:</strong> {selectedProductName}
+                    </p>
+                </div>
+                <template for:each={knowledgeArticles} for:item="article">
+                    <div key={article.id} class="faq-item">
+                        <!-- 🔹 질문 (클릭 시 토글) -->
+                        <div class="faq-question" onclick={toggleKnowledge} data-id={article.id}>
+                            <span class="question-label">K</span>
+                            <strong>{article.title}</strong>
+                        </div>
+
+                        <!-- 🔹 답변 (애니메이션 적용) -->
+                        <div class={article.answerClass}>
+                            <div class="faq-answer">
+                                <span class="answer-label-one">Q</span>
+                                <lightning-formatted-rich-text value={article.question}></lightning-formatted-rich-text>
+                                <span class="answer-label-two">A</span>
+                                <lightning-formatted-rich-text value={article.answer}></lightning-formatted-rich-text>
+                            </div>
+                        </div>
+                    </div>
+                </template>
+            </div>
+        </template>
+
+        <template if:false={knowledgeArticles.length}>
+            <lightning-card title="📖 Knowledge 검색">
+                <p class="no-results">⚠️ 검색된 Knowledge 문서가 없습니다.</p>
+            </lightning-card>
+        </template>
+    </div>
+</template>

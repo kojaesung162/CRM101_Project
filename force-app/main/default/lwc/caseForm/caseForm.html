@@ -1,0 +1,72 @@
+<template>
+    <div class="case-container" onclick={openModal}>
+        <button class="case-button" onclick={openModal}>
+            <svg width="100" height="100" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M2 4C1.44772 4 1 4.44772 1 5V19C1 19.5523 1.44772 20 2 20H22C22.5523 20 23 19.5523 23 19V5C23 4.44772 22.5523 4 22 4H2Z" 
+                      stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M1 5L12 13L23 5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </button>
+    </div>
+    <!-- 📌 모달 (팝업) -->
+    <template if:true={isModalOpen}>
+        <section role="dialog" class="slds-modal slds-fade-in-open custom-modal">
+            <div class="slds-modal__container custom-modal-container">
+                <!-- 📌 모달 헤더 -->
+                <header class="slds-modal__header custom-modal-header">
+                    <h2 class="modal-title">🚀 문의하기</h2>
+                </header>
+                <!-- 📌 모달 내용 -->
+                <div class="slds-modal__content slds-p-around_medium custom-modal-content">
+                    <form action="https://webto.salesforce.com/servlet/servlet.WebToCase?encoding=UTF-8&orgId=00DQy00000KjUhZ" method="POST">
+                        
+                        <input type="hidden" name="orgid" value="00DQy00000KjUhZ">
+                        <input type="hidden" name="retURL" value={retURL}>
+
+                        <div class="form-container">
+                            <div class="form-group">
+                                <label for="subject">📌 Subject</label>
+                                <input id="subject" maxlength="80" name="subject" size="20" type="text" placeholder="Enter subject..." />
+                            </div>
+
+                            <div class="form-group">
+                                <label for="reason">📌 Case Reason</label>
+                                <select id="reason" name="reason">
+                                    <option value="">--None--</option>
+                                    <option value="Failure">작동안함</option>
+                                    <option value="Malfunction">오작동</option>
+                                    <option value="Leakage">누수</option>
+                                    <option value="Others">기타</option>
+                                    <option value="Damaged">기기파손</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="description">📌 Description</label>
+                                <textarea id="description" name="description" placeholder="Provide a detailed description..."></textarea>
+                            </div>
+                        </div>
+
+
+
+                        <input type="hidden" id="accountIdField" name="00NQy00000Gwf45" value={accountId} /><br>
+
+                        <!-- ✅ ProductId를 Hidden Input으로 설정 -->
+                        <input  type="hidden" id="productIdField" name="00NQy00000HRNMv" value={productId}/><br>
+
+                        <!-- ✅ Case Record Type 설정 -->
+                        <input type="hidden" name="recordType" value={caseRecordType}>
+
+                        <!-- 📌 버튼 그룹 -->
+                        <div class="button-group">
+                            <button type="submit" class="submit-button">📩 제출하기</button>
+                            <button type="button" class="close-button" onclick={closeModal}>닫기</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+        <!-- 📌 모달 배경 -->
+        <div class="slds-backdrop slds-backdrop_open custom-backdrop" onclick={closeModal}></div>
+    </template>
+</template>

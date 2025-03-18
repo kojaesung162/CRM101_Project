@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningMessageChannel xmlns="http://soap.sforce.com/2006/04/metadata">
+    <masterLabel>Population Message Channel</masterLabel>
+    <isExposed>true</isExposed>
+    <lightningMessageFields>
+        <fieldName>selectedDateTime</fieldName>
+    </lightningMessageFields>
+    <lightningMessageFields>
+        <fieldName>selectedDistrict</fieldName>
+    </lightningMessageFields>
+    <lightningMessageFields>
+        <fieldName>selectedDong</fieldName>
+    </lightningMessageFields>
+    <lightningMessageFields>
+        <fieldName>selectedDongCode</fieldName>
+    </lightningMessageFields>
+    <lightningMessageFields>
+        <fieldName>populationData</fieldName>  <!-- 🔥 JSON 데이터 포함 -->
+    </lightningMessageFields>
+    <lightningMessageFields>
+        <fieldName>selectedTotalcount</fieldName>  <!-- 🔥 JSON 데이터 포함 -->
+    </lightningMessageFields>
+</LightningMessageChannel>

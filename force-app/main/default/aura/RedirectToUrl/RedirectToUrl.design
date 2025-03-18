@@ -1,0 +1,3 @@
+<design:component>
+    <design:attribute name="targetUrl" label="Target URL" />
+</design:component>

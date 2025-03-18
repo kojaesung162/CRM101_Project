@@ -1,0 +1,49 @@
+.progress-container {
+    position: fixed;
+    /* top: 10px;  */
+    left: 50%; 
+    transform: translateX(-50%); 
+    /* width: 80%; */
+    height: 20px;
+    background: #ddd;
+    z-index: 1000;
+    /* border: none;
+    border-radius: 20px; */
+    top: 0px;
+    width: 100%;
+}
+
+.progress-bar {
+    height: 20px;
+    background: linear-gradient(to right, #ff5733, #ffbd69);
+    width: 0%;
+    /* border: none;
+    border-radius: 20px; */
+    transition: width 0.2s ease-out;
+}
+
+/* 완료된 단계의 색상 변경 */
+.slds-progress-bar__value {
+    background-color: blue; /* 변경하고 싶은 색상으로 설정 */
+}
+
+/* 현재 단계의 색상 변경 */
+.slds-is-active .slds-progress-bar__value {
+    background-color: red; /* 변경하고 싶은 색상으로 설정 */
+}
+
+/* 에러가 있는 단계의 색상 변경 */
+.has-error .slds-progress-bar__value {
+    background-color: orange; /* 변경하고 싶은 색상으로 설정 */
+}
+
+.custom-css {
+    position: fixed;
+    width: 100%;
+    height: 20px;
+    top: 20px;
+    left: 50%; 
+    transform: translateX(-50%); 
+    --lwc-progressBarColorBackgroundFill: green;
+    z-index: 1000;
+  }

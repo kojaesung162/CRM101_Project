@@ -1,0 +1,32 @@
+.custom-yellow-button {
+    background-color: #FFD700; /* 🌟 골드 색상 */
+    color: black; /* 🔥 글자 색 */
+    font-weight: bold;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.custom-yellow-button:hover {
+    background-color: #FFC107; /* ✨ 조금 더 밝은 노란색 (호버 효과) */
+}
+
+.custom-input {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+
+.custom-input:focus {
+    border-color: #FFD700; /* ✨ 포커스 시 골드 색상 */
+    outline: none;
+}
+
+.status-message {
+    color: white;
+}

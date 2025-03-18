@@ -1,0 +1,89 @@
+/* 🔹 전체 Knowledge 컨테이너 스타일 */
+.knowledge-container {
+    padding: 15px;
+    background-color: white;
+    border-radius: 20px;
+    color: white;
+    width: 100%;
+}
+
+/* 🔹 FAQ 질문 스타일 */
+.faq-question {
+    cursor: pointer;
+    padding: 12px;
+    background-color: #5d4534;
+    border-radius: 8px;
+    font-weight: bold;
+    color: white;
+    display: flex;
+    align-items: center;
+    transition: background 0.3s ease-in-out;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    margin: 5px auto;
+}
+
+.faq-question:hover {
+    background-color: #0070d2;
+    color: white;
+}
+
+/* 🔹 질문 앞 Q 아이콘 */
+.question-label {
+    color: yellow;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+/* 🔹 부드럽게 슬라이드되는 컨테이너 */
+.faq-answer-container {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out;
+}
+
+/* 🔹 답변이 열릴 때 */
+.faq-answer-container.show {
+    max-height: 500px;
+    opacity: 1;
+}
+
+/* 🔹 답변 스타일 */
+.faq-answer {
+    padding: 12px;
+    background-color: white;
+    color: black;
+    border-radius: 8px;
+    /* margin-top: 1px; */
+    border: 3px solid black;  /* ✅ 경계선 추가 */
+}
+
+.faq-item{
+    overflow-y: scroll;
+}
+
+.faq-item::-webkit-scrollbar {
+    display: none; /* ✅ Chrome, Safari, Edge */
+}
+
+
+/* 🔹 답변 앞 A 아이콘 */
+.answer-label-one {
+    font-weight: bold;
+    color: blue;
+}
+
+/* 🔹 답변 앞 A 아이콘 */
+.answer-label-two {
+    font-weight: bold;
+    color: red;
+}
+
+/* 🔹 선택된 제품 정보 */
+.selected-product {
+    font-size: 16px;
+    color: black;
+    text-align: left;
+    font-weight: bold;
+    margin-bottom: 10px;
+}

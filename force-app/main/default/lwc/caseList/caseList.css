@@ -1,0 +1,91 @@
+.custom-card-wrapper {
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); 
+    font-weight: bold;
+    padding: 15px;
+    background-color: white;
+    width: 100%;
+    font-size: 16px;
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+.custom-card-wrapper h2 {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.status-counts p {
+    font-size: 14px;
+    margin: 5px 0;
+    color: #333;
+}
+
+.case-container {
+    max-height: 300px; 
+    overflow-y: scroll; 
+    padding: 10px;
+}
+
+.case-container::-webkit-scrollbar {
+    display: none; 
+}
+
+.case-list {
+    list-style-type: none; 
+    padding: 0;
+    margin: 0;
+}
+
+.case-item {
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #5d4534; 
+    border-radius: 5px;
+    color: white;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); 
+}
+
+.case-item p {
+    margin: 5px 0;
+}
+
+.case-label {
+    color: yellow;
+    font-weight: bold;
+}
+
+.case-item {
+    border-bottom: 1px solid #ccc;
+    padding: 10px;
+    list-style-type: none;
+}
+
+.case-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.case-title, .case-date {
+    flex: 1;
+    margin: 0 5px;
+}
+
+/* .case-progress {
+    display: flex;
+    align-items: center;
+} */
+
+progress {
+    width: 100%;
+    margin-right: 10px;
+}
+
+.case-progress {
+    width: 100% !important;
+    overflow-x: auto !important;
+}
+
+

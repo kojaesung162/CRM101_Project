@@ -1,0 +1,31 @@
+<template>
+    <div class="rounded-card-container">
+        <lightning-card class={productListClass}>
+            <div slot="title" class="custom-title">
+                <Strong class="my-title">{accountName}</Strong>
+            </div>
+            <div class="slds-m-around_medium">
+                <template if:true={accountId}>
+                    <div class="product-list-container">
+                        <template for:each={products} for:item="product">
+                            <div key={product.id} class="product-card" data-id={product.id} onclick={handleProductSelection}>
+                                <img src={product.imageUrl} alt={product.name} class="product-image"/>
+                                <div class="product-info">
+                                    <p class="product-name"><strong>☕ 제품 :  </strong>{product.name}</p>
+                                    <p class="product-quantity"><strong>🏷️ 카테고리 :  </strong>{product.category}</p>
+                                    <p class="product-price"><strong>📦 보유수량 :  </strong>{product.totalQuantity}</p>
+                                </div>
+                            </div>
+                        </template>
+                    </div>
+                </template>
+            </div>
+        </lightning-card>
+    </div>
+    <div class={fadeInTextClass}>자가 해결이 가능한지 확인해보세요</div>
+
+    <div class="knowledge-wrapper" hidden={isKnowledgeHidden}>
+        <c-knowledge-search class={knowledgeClass}></c-knowledge-search>
+    </div>
+</template>
+

@@ -1,0 +1,3 @@
+<aura:component implements="force:lightningQuickAction, lightning:availableForFlowActions">
+    <aura:attribute name="targetUrl" type="String" />
+</aura:component>

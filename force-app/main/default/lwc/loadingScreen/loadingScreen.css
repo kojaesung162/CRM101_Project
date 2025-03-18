@@ -1,0 +1,30 @@
+/* 📌 로딩 화면 전체 컨테이너 */
+.loading-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: white; /* 배경을 흰색으로 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999; /* 최상위 배치 */
+    transition: opacity 0.5s ease-in-out;
+}
+
+/* 📌 로딩 이미지 스타일 */
+.loading-image {
+    width: 100VW !important;
+    height: 100VH !important;
+    justify-content: center;
+    object-fit: cover;
+    animation: fadeInOut 3s ease-in-out; /* 애니메이션 적용 */
+}
+
+/* 📌 점점 사라지는 애니메이션 */
+@keyframes fadeInOut {
+    0% { opacity: 0; }
+    50% { opacity: 1; }
+    100% { opacity: 0; }
+}

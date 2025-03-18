@@ -1,0 +1,171 @@
+/* 📌 Floating Button (원 버튼) */
+.case-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 120px;
+    width: 80%;
+    max-width: 500px;
+    position: relative;
+    border-radius: 25px;
+    border: 1px solid #5d4534;
+    background-color: #5d4534;
+    cursor: pointer;
+    margin: 0 auto;
+}
+
+/* 📌 버튼을 완전히 중앙 배치 */
+.case-button {
+    height: 100px;
+    background-color: #5d4534;
+    font-size: 24px; /* 글씨 크기 조정 */
+    color: white; /* 기본 글씨색 */
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    text-align: center;
+
+}
+/* 📌 Hover 시 강조 효과 */
+.case-container:hover {
+    transform: scale(1.03); /* 살짝 확대 */
+    transition: all 0.3s ease-in-out;
+}
+
+/* 📌 모달 배경 */
+/* .custom-backdrop {
+    background: rgba(0, 0, 0, 0.6);
+} */
+
+/* 📌 모달 컨테이너 */
+.custom-modal-container {
+    max-width: 480px;
+    border-radius: 12px;
+    overflow: hidden;
+    /* background: rgba(0, 0, 0, 0.6); */
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+/* 📌 모달 헤더 (X 버튼 제거) */
+.custom-modal-header {
+    background: #B47B53;
+    color: white;
+    padding: 12px 20px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* 📌 모달 내용 (위/아래 여백 제거) */
+.custom-modal-content {
+    padding: 15px 20px;
+}
+
+/* 📌 전체 폼 컨테이너 스타일 */
+.form-container {
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* 📌 입력 필드 및 라벨 스타일 */
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+}
+
+/* 📌 인풋 필드 및 셀렉트 스타일 */
+input[type="text"],
+select,
+textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    transition: border 0.3s ease-in-out;
+}
+
+input[type="text"]:focus,
+select:focus,
+textarea:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+/* 📌 텍스트 영역 스타일 */
+textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+.input-field,
+.textarea-field {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+    transition: all 0.2s ease-in-out;
+}
+
+.input-field:focus,
+.textarea-field:focus {
+    border-color: #B47B53;
+    box-shadow: 0 0 5px rgba(0, 112, 210, 0.5);
+}
+
+/* 📌 버튼 그룹 */
+.button-group {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.submit-button {
+    background: #B47B53;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    transition: all 0.3s ease-in-out;
+}
+
+.submit-button:hover {
+    background: #B47B53;
+}
+
+.close-button {
+    background: #ccc;
+    color: black;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    transition: all 0.3s ease-in-out;
+}
+
+.close-button:hover {
+    background: #999;
+}

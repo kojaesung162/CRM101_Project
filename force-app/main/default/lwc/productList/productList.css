@@ -1,0 +1,132 @@
+/* 🔹 외부 컨테이너 둥근 테두리 적용 */
+.rounded-card-container {
+    border-radius: 25px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    margin-bottom: 100px;
+    font-weight: bold;
+}
+
+/* 🔹 ProductList 애니메이션 */
+.product-list-wrapper {
+    transition: transform 0.8s ease-in-out;
+    font-weight: bold;
+}
+
+/* 🔹 ProductList 선택 후 위로 이동 */
+.product-list-wrapper.move-up {
+    transform: translateY(calc(-100px - 10vh));
+    font-weight: bold;
+}
+
+/* 🔹 제품 리스트 컨테이너 */
+.product-list-container {
+    max-height: 500px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 10px;
+}
+
+.product-list-container::-webkit-scrollbar {
+    display: none; /* ✅ Chrome, Safari, Edge */
+}
+
+/* 🔹 제품 카드 스타일 */
+.product-card {
+    display: flex;
+    align-items: center;
+    background: white;
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    border: 1px solid #ddd;
+    width: 95%;
+    margin: 0 auto;
+    min-height: 120px;
+    cursor: pointer;
+}
+
+/* 🔹 카드 Hover 효과 */
+.product-card:hover {
+    background-color: #5d4534 !important; /* ✅ 배경색 변경 */
+    color: white !important; /* ✅ 모든 글자색을 흰색으로 변경 */
+    transform: scale(1.03);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.product-image {
+    width: 100px; /* 또는 원하는 고정 크기 */
+    height: 100px;
+    object-fit: contain; /* 비율을 유지하면서 전체 이미지 표시 */
+    background-color: white; /* 빈 공간이 있을 경우 배경색 지정 가능 */
+    border: none;
+    border-radius: 15px;
+    margin-right: 20px;
+}
+
+
+.product-info {
+    font-size: 12px;
+}
+
+/* 🔹 Hover 시 내부 텍스트 색상 변경 */
+.product-card:hover .product-name,
+.product-card:hover .product-quantity,
+.product-card:hover .product-price {
+    color: white !important;
+}
+
+/* 🔹 선택된 제품 카드 스타일 */
+.product-card.selected {
+    background-color: #3f3026 !important; /* ✅ 선택된 상태에서도 어두운 배경 유지 */
+    color: white !important; /* ✅ 모든 글자색을 흰색으로 변경 */
+    border: 2px solid #4a3628; /* ✅ 테두리 추가 */
+}
+
+/* 🔹 선택된 제품 내부 텍스트도 흰색으로 변경 */
+.product-card.selected .product-name,
+.product-card.selected .product-quantity,
+.product-card.selected .product-price {
+    color: white !important;
+}
+
+/* 🔹 "자가 해결이 가능한지 확인해보세요." 문구 애니메이션 */
+.fade-in-text {
+    opacity: 0;
+    font-size: 18px;
+    color: white;
+    text-align: center;
+    margin-top: 30px;
+    transform: translateY(70px);
+    transition: opacity 1s ease-in-out, transform 0.8s ease-in-out;
+    font-family: 'Nunito', 'Poppins', 'Quicksand', 'Arial Rounded MT Bold', sans-serif;
+    font-weight: bold;
+}
+
+/* 🔹 문구가 나타나는 상태 */
+.fade-in-text.show {
+    opacity: 1;
+    transform: translateY(150px);
+}
+
+.knowledge-wrapper {
+    margin-top: 150px;
+    margin-bottom: 30px;
+}
+
+/* 🔹 Knowledge 컴포넌트 애니메이션 */
+.knowledge-container {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+    transition-delay: 0.4s;
+}
+
+/* 🔹 Knowledge 컴포넌트가 나타나는 상태 */
+.knowledge-container.show {
+    opacity: 1;
+    transform: translateY(0);
+}

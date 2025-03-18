@@ -1,0 +1,63 @@
+<!-- <template>
+    <div class="prechat-form">
+        <h2>Welcome to Support Chat</h2>
+
+       
+        <lightning-input label="제목" name="_subject" onchange={handleInputChange} required></lightning-input>
+
+    
+        <lightning-combobox 
+            label="사례 근거"
+            name="Case_Reason"
+            options={caseReasonOptions}
+            onchange={handleInputChange}
+            required>
+        </lightning-combobox>
+
+
+        <lightning-textarea 
+            label="설명" 
+            name="description" 
+            onchange={handleInputChange} 
+            required>
+        </lightning-textarea>
+
+      
+        <lightning-button variant="brand" label="상담 시작" onclick={handleStartChat}></lightning-button>
+    </div>
+</template> -->
+<template>
+    <div class="prechat-form">
+        <h1 class="header-title">상담 문의</h1>
+    
+        <!-- Subject 입력 -->
+        <div class="input-group">
+            <label for="subject">제목</label>
+            <input type="text" id="subject" name="_subject" required onchange={handleInputChange}>
+        </div>
+        <!-- Case Reason 입력 -->
+        <div class="input-group">
+            <label for="case-reason">사례 근거</label>
+            <select id="case-reason" name="Case_Reason" required onchange={handleInputChange}>
+                <option value="">--근거를 선택해주세요--</option>
+                <option value="Failure">작동정지</option>
+                <option value="Malfunction">오작동</option>
+                <option value="Leakage">누수</option>
+                <option value="Damaged">기기파손</option>
+                <option value="Others">기타</option>
+            </select>
+        </div>
+    
+        <!-- Description 입력 -->
+        <div class="input-group">
+            <label for="description">설명</label>
+            <textarea id="description" name="description" required onchange={handleInputChange}></textarea>
+        </div>
+    
+        <!-- Start Chat 버튼 -->
+        <button type="button" onclick={handleStartChat}>상담 시작</button>
+    </div>
+</template>
+
+
+

@@ -75,7 +75,7 @@
           return;
         }
 
-        searchCount++; // 🔥 검색 횟수 증가
+        searchCount++; 
 
         const placeName = event.result.place_name;
         window.parent.postMessage({ placeName: placeName }, '*');
@@ -93,7 +93,6 @@
         }
       });
 
-      // ✅ 검색 비활성화 함수
       function disableSearch() {
         const geocoderContainer = document.querySelector(
           '.mapboxgl-ctrl-geocoder'

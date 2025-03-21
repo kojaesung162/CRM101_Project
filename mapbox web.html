@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mapbox 3D Map</title>
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.10.0/mapbox-gl.js"></script>
+    <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.2/mapbox-gl-geocoder.min.js"></script>
+    <link
+      href="https://api.mapbox.com/mapbox-gl-js/v2.10.0/mapbox-gl.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.2/mapbox-gl-geocoder.css"
+      rel="stylesheet"
+    />
+    <style>
+      body,
+      html {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+      }
+      #map {
+        width: 100%;
+        height: 100%;
+      }
+      .mapboxgl-ctrl-geocoder {
+        background-color: black !important;
+        color: white !important;
+        border-radius: 5px;
+      }
+      .mapboxgl-ctrl-geocoder input {
+        background-color: black !important;
+        color: white !important;
+      }
+      .mapboxgl-ctrl-geocoder .suggestions {
+        background-color: black !important;
+        color: white !important;
+      }
+      .disabled {
+        pointer-events: none;
+        opacity: 0.5;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+    <script>
+      let searchCount = 0;
+      const maxSearches = 3;
+
+      mapboxgl.accessToken = 'Put_Your_AccessToken';
+
+      const map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/haha1224/cm7vtsmu1002h01si2xfodq42',
+        center: [127.006101, 37.510213],
+        zoom: 11.35,
+        pitch: 45,
+        bearing: -17.6,
+        antialias: true,
+      });
+
+      const geocoder = new MapboxGeocoder({
+        accessToken: mapboxgl.accessToken,
+        mapboxgl: mapboxgl,
+      });
+      map.addControl(geocoder);
+
+      geocoder.on('result', function (event) {
+        if (searchCount >= maxSearches) {
+          console.warn('⚠️ 최대 검색 횟수를 초과했습니다.');
+          return;
+        }
+
+        searchCount++; // 🔥 검색 횟수 증가
+
+        const placeName = event.result.place_name;
+        window.parent.postMessage({ placeName: placeName }, '*');
+
+        const coords = event.result.center;
+        map.flyTo({
+          center: coords,
+          zoom: 16,
+          pitch: 60,
+          bearing: 0,
+        });
+
+        if (searchCount >= maxSearches) {
+          disableSearch();
+        }
+      });
+
+      // ✅ 검색 비활성화 함수
+      function disableSearch() {
+        const geocoderContainer = document.querySelector(
+          '.mapboxgl-ctrl-geocoder'
+        );
+        if (geocoderContainer) {
+          geocoderContainer.classList.add('disabled');
+          geocoderContainer.querySelector('input').disabled = true;
+        }
+      }
+    </script>
+  </body>
+</html>

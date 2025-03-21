@@ -1,6 +1,7 @@
 # CRM101_Project
 ## 기업 개요
 <img src="https://github.com/user-attachments/assets/b7a26122-8123-4aae-89be-87406a48f0f2" width="75%"/>
+
 ### 구현 결과 – Sales 
 #### 기능
 - 프로모션 코드를 통해 검증된 고객만 이용 가능

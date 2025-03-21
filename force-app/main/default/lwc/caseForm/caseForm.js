@@ -9,40 +9,32 @@ export default class CaseForm extends LightningElement {
     @track productName = '';
     @track productCategory = '';
     @track retURL = 'https://crm10167-dev-ed.develop.my.site.com/asSupport/s/?accountId=';
-    @track caseRecordType = '012Qy000005M7MX'; // ✅ 기본값 (Cafe)
+    @track caseRecordType = '012Qy000005M7MX';
     subscription = null;
 
     @wire(MessageContext)
     messageContext;
-    // 🔹 세션에서 accountId 불러오기
     connectedCallback() {
         
         const params = new URLSearchParams(window.location.search);
         this.accountId = params.get('accountId') || '';
         this.retURL += this.accountId;
-        console.log('Extracted accountId:', this.accountId);
 
-        // ✅ LMS 구독 (productCategory에 따라 caseRecordType 변경)
         if (this.messageContext && !this.subscription) {
             this.subscription = subscribe(this.messageContext, PRODUCT_MESSAGE, (message) => {
-                console.log('🔹 Received Product Category:', message.productCategory);
                 this.productId=message.productId;
                 this.productName=message.productName;
                 this.productCategory=message.productCategory;
-                console.log(message.productId);
                 if (message.productCategory === '커피트럭') {
-                    this.caseRecordType = '012Qy000005M7RN'; // ✅ Cafe의 Record Type ID
+                    this.caseRecordType = '012Qy000005M7RN'; 
                 } 
                 else {
-                    this.caseRecordType = '012Qy000005M7MX'; // 기본값
+                    this.caseRecordType = '012Qy000005M7MX'; 
                 }
-                
-                console.log('🔹 Updated Case Record Type:', this.caseRecordType);
             });
         }
     }
 
-    // 🔹 모달 열기
     openModal() {
         this.isModalOpen = true;
         publish(this.messageContext, PRODUCT_MESSAGE, {
@@ -53,7 +45,6 @@ export default class CaseForm extends LightningElement {
         });
     }
 
-    // 🔹 모달 닫기
     closeModal() {
         this.isModalOpen = false;
     }

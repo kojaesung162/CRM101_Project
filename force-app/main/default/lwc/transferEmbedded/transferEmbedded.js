@@ -1,5 +1,5 @@
 import { LightningElement, track, wire  } from 'lwc';
-import { publish, subscribe, MessageContext } from 'lightning/messageService';
+import { subscribe, MessageContext } from 'lightning/messageService';
 import PRODUCT_MESSAGE from '@salesforce/messageChannel/ProductMessageChannel__c';
 
 export default class TransferEmbedded extends LightningElement {
@@ -16,7 +16,6 @@ export default class TransferEmbedded extends LightningElement {
     connectedCallback() {
         if (this.messageContext && !this.subscription) {
             this.subscription = subscribe(this.messageContext, PRODUCT_MESSAGE, (message) => {
-                console.log('🔹 Received Product Category:', message.productCategory);
                 this.accountId=message.accountId;
                 this.productId = message.productId;
                 this.productName = message.productName;
@@ -27,7 +26,6 @@ export default class TransferEmbedded extends LightningElement {
                 } else {
                     this.caseRecordType = '012Qy000005M7MX';
                 }
-                console.log('🔹 Updated Case Record Type:', this.caseRecordType);
 
                 var selectedEvent = new CustomEvent('productInfo', {
                     detail: {
@@ -39,7 +37,6 @@ export default class TransferEmbedded extends LightningElement {
                     composed: true 
                 });
                 document.getElementById('embeddedMessagingConversationButton').style.display = 'block';
-                // 이벤트 전파
                 window.dispatchEvent(selectedEvent);
             });
         }

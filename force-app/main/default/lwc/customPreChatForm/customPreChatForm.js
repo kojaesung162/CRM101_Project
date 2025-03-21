@@ -1,16 +1,12 @@
 import { LightningElement, track } from 'lwc';
 
 export default class CustomPreChatForm extends LightningElement {
-    @track _subject = '';
-    @track Case_Reason = '';
-    @track description = '';
     prechatDetails={
         "_subject": "",
         "Case_Reason": "",
         "description": ""
     };
 
-    // Case Reason 옵션
     get caseReasonOptions() {
         return [
             { label: '작동정지', value: 'Failure' },
@@ -21,7 +17,6 @@ export default class CustomPreChatForm extends LightningElement {
         ];
     }
 
-    // 입력값 변경 핸들러
     handleInputChange(event) {
         if(event.target.name=='_subject'){
             this.prechatDetails._subject=String(event.target.value);
@@ -34,7 +29,6 @@ export default class CustomPreChatForm extends LightningElement {
         }
     }
 
-    // Chat 시작 함수
     handleStartChat() {
         this.dispatchEvent(new CustomEvent(
             "prechatsubmit",

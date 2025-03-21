@@ -3,7 +3,7 @@
     <apiVersion>62.0</apiVersion>
     <isExposed>true</isExposed>
     <targets>
-        <target>lightningCommunity__Page</target>  <!-- Experience Cloud 지원 -->
-        <target>lightningCommunity__Default</target>  <!-- Experience Cloud 기본 지원 -->
+        <target>lightningCommunity__Page</target>  
+        <target>lightningCommunity__Default</target>  
     </targets>
 </LightningComponentBundle>

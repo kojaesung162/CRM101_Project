@@ -15,9 +15,9 @@
         <fieldName>selectedDongCode</fieldName>
     </lightningMessageFields>
     <lightningMessageFields>
-        <fieldName>populationData</fieldName>  <!-- 🔥 JSON 데이터 포함 -->
+        <fieldName>populationData</fieldName>  
     </lightningMessageFields>
     <lightningMessageFields>
-        <fieldName>selectedTotalcount</fieldName>  <!-- 🔥 JSON 데이터 포함 -->
+        <fieldName>selectedTotalcount</fieldName>  
     </lightningMessageFields>
 </LightningMessageChannel>

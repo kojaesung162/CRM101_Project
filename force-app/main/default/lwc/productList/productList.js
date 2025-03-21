@@ -13,24 +13,20 @@ export default class ProductList extends LightningElement {
     @track selectedProductCategory = '';
     @track accountName = "";
     
-
     @wire(MessageContext) messageContext;
 
     @track productListMoved = false;
     @track isTextVisible = false;
-    @track hasProductBeenSelected = false; // 🔥 한 번이라도 제품을 선택했는지 여부
-    @track isKnowledgeHidden = true; // 🔥 처음에는 hidden 상태
+    @track hasProductBeenSelected = false; 
+    @track isKnowledgeHidden = true; 
 
     connectedCallback() {
         const params = new URLSearchParams(window.location.search);
         this.accountId = params.get('accountId') || ''; 
-        console.log('Extracted Account ID:', this.accountId);
-
+        
         if (this.accountId) {
             this.loadProducts();
         }
-
-       
     }
 
     @wire(getAccountName, { accountId: '$accountId' })
@@ -65,11 +61,7 @@ export default class ProductList extends LightningElement {
                     totalQuantity: item.totalQuantity,
                     totalRevenue: item.totalRevenue,
                     imageUrl: ProductImage+'/'+encodeURIComponent(item.name)+'.png'
-
                 }));
-                console.log(ProductImage);
-                console.log('Loaded Products:', this.products);
-
             }
         } catch (error) {
             console.error('Error fetching products:', error);
@@ -77,27 +69,17 @@ export default class ProductList extends LightningElement {
     }
 
     handleProductSelection(event) {
-        // 🔹 선택된 제품 가져오기
         this.selectedProductId = event.currentTarget.dataset.id;
         const selectedProduct = this.products.find(product => product.id === this.selectedProductId);
         this.selectedProductName = selectedProduct?.name || '';
         this.selectedProductCategory = selectedProduct?.category || '';
-    
-        console.log('Selected ProductId:', this.selectedProductId);
-        console.log('Selected Product:', this.selectedProductName);
-        console.log('Selected Product Category:', this.selectedProductCategory);
-    
-        // 🔹 모든 제품 카드에서 'selected' 클래스 제거
+
         this.template.querySelectorAll('.product-card').forEach(card => {
             card.classList.remove('selected');
         });
     
-        // 🔹 현재 선택된 제품 카드에 'selected' 클래스 추가
         event.currentTarget.classList.add('selected');
 
-        
-    
-        // 🔹 LMS 메시지 발행 (선택된 제품 정보 전송)
         const message = {
             accountId: this.accountId,
             productId: this.selectedProductId,
@@ -106,11 +88,8 @@ export default class ProductList extends LightningElement {
             progressValue: 66  
         };
         publish(this.messageContext, PRODUCT_MESSAGE, message);
-    
-        // 🔹 애니메이션 동작
         this.productListMoved = true;
-    
-        // 🔥 문구를 한 번만 표시하고 이후에는 숨김
+
         if (!this.hasProductBeenSelected) {
             this.isTextVisible = true;
         }
@@ -122,13 +101,10 @@ export default class ProductList extends LightningElement {
                 textElement.scrollIntoView({ behavior: 'smooth' });
             }
     
-            // 🔽 1.5초 후 문구 사라짐
             setTimeout(() => {
                 this.isTextVisible = false;
-    
-                // 🔽 0.5초 후 KnowledgeSearch의 hidden 속성 해제
                 setTimeout(() => {
-                    this.isKnowledgeHidden = false; // ✅ `hidden` 해제하여 표시
+                    this.isKnowledgeHidden = false; 
                 }, 500);
             }, 1500);
         }, 700);

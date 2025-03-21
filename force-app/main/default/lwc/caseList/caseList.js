@@ -10,15 +10,11 @@ export default class CaseList extends LightningElement {
     @track f_workingCasesCount = 0;
     @track f_escalatedCasesCount = 0;
     @track titleCase = '';
-    @track copyCaseList=[];
     @track accountName='';
 
     connectedCallback() {
-        // URL에서 accountId 가져오기
         const params = new URLSearchParams(window.location.search);
         this.accountId = params.get('accountId') || '';
-        console.log('Extracted Account ID:', this.accountId);
-
         if (this.accountId) {
             this.loadCases();
         }
@@ -32,12 +28,10 @@ export default class CaseList extends LightningElement {
                 console.error('Error fetching Account Name:', error);
             }
         }
-    
 
     loadCases() {
         getCasesByAccount({ accountId: this.accountId })
             .then(result => {
-                // 각 status 별로 케이스 개수 집계
                 const statusCounts = result.reduce((acc, cs) => {
                     if (acc[cs.Status]) {
                         acc[cs.Status] += 1;
@@ -54,16 +48,14 @@ export default class CaseList extends LightningElement {
                 }));
     
                 this.hasCases = this.caseList.length > 0;
-    
-                // 상태별 케이스 수 업데이트
+
                 const newCasesCount = statusCounts['New'] || 0;
                 const workingCasesCount = statusCounts['Working'] || 0;
                 const escalatedCasesCount = statusCounts['Escalated'] || 0;
                 this.f_newCasesCount = newCasesCount;
                 this.f_workingCasesCount = workingCasesCount;
                 this.f_escalatedCasesCount = escalatedCasesCount;
-    
-                // titleCase 업데이트
+
                 this.titleCase += ` 신규 접수: ${this.f_newCasesCount}  처리 중: ${this.f_workingCasesCount}  긴급 상승: ${this.f_escalatedCasesCount}`;
             })
             .catch(error => {
@@ -85,11 +77,9 @@ export default class CaseList extends LightningElement {
         return this.caseList.filter(cs => cs.Status === 'Escalated');
     }
 
-    
-    // 날짜 포맷 변경 함수 (YYYY-MM-DD)
     formatDate(dateString) {
-        if (!dateString) return 'N/A'; // 날짜가 없는 경우 예외 처리
+        if (!dateString) return 'N/A'; 
         const date = new Date(dateString);
-        return date.toISOString().split('T')[0]; // YYYY-MM-DD 형식으로 변환
+        return date.toISOString().split('T')[0];
     }
 }

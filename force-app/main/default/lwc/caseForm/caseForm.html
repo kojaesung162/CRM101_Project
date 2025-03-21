@@ -8,15 +8,12 @@
             </svg>
         </button>
     </div>
-    <!-- 📌 모달 (팝업) -->
     <template if:true={isModalOpen}>
         <section role="dialog" class="slds-modal slds-fade-in-open custom-modal">
             <div class="slds-modal__container custom-modal-container">
-                <!-- 📌 모달 헤더 -->
                 <header class="slds-modal__header custom-modal-header">
-                    <h2 class="modal-title">🚀 문의하기</h2>
+                    <h2 class="modal-title">문의하기</h2>
                 </header>
-                <!-- 📌 모달 내용 -->
                 <div class="slds-modal__content slds-p-around_medium custom-modal-content">
                     <form action="https://webto.salesforce.com/servlet/servlet.WebToCase?encoding=UTF-8&orgId=00DQy00000KjUhZ" method="POST">
                         
@@ -25,12 +22,12 @@
 
                         <div class="form-container">
                             <div class="form-group">
-                                <label for="subject">📌 Subject</label>
+                                <label for="subject">Subject</label>
                                 <input id="subject" maxlength="80" name="subject" size="20" type="text" placeholder="Enter subject..." />
                             </div>
 
                             <div class="form-group">
-                                <label for="reason">📌 Case Reason</label>
+                                <label for="reason">Case Reason</label>
                                 <select id="reason" name="reason">
                                     <option value="">--None--</option>
                                     <option value="Failure">작동안함</option>
@@ -42,31 +39,21 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="description">📌 Description</label>
+                                <label for="description">Description</label>
                                 <textarea id="description" name="description" placeholder="Provide a detailed description..."></textarea>
                             </div>
                         </div>
-
-
-
                         <input type="hidden" id="accountIdField" name="00NQy00000Gwf45" value={accountId} /><br>
-
-                        <!-- ✅ ProductId를 Hidden Input으로 설정 -->
                         <input  type="hidden" id="productIdField" name="00NQy00000HRNMv" value={productId}/><br>
-
-                        <!-- ✅ Case Record Type 설정 -->
                         <input type="hidden" name="recordType" value={caseRecordType}>
-
-                        <!-- 📌 버튼 그룹 -->
                         <div class="button-group">
-                            <button type="submit" class="submit-button">📩 제출하기</button>
+                            <button type="submit" class="submit-button">제출하기</button>
                             <button type="button" class="close-button" onclick={closeModal}>닫기</button>
                         </div>
                     </form>
                 </div>
             </div>
         </section>
-        <!-- 📌 모달 배경 -->
         <div class="slds-backdrop slds-backdrop_open custom-backdrop" onclick={closeModal}></div>
     </template>
 </template>

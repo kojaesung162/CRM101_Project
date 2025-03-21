@@ -1,4 +1,3 @@
-/* 📌 Floating Button (원 버튼) */
 .case-container {
     display: flex;
     justify-content: center;
@@ -14,12 +13,11 @@
     margin: 0 auto;
 }
 
-/* 📌 버튼을 완전히 중앙 배치 */
 .case-button {
     height: 100px;
     background-color: #5d4534;
-    font-size: 24px; /* 글씨 크기 조정 */
-    color: white; /* 기본 글씨색 */
+    font-size: 24px; 
+    color: white; 
     border: none;
     border-radius: 25px;
     cursor: pointer;
@@ -36,27 +34,19 @@
     text-align: center;
 
 }
-/* 📌 Hover 시 강조 효과 */
+
 .case-container:hover {
-    transform: scale(1.03); /* 살짝 확대 */
+    transform: scale(1.03); 
     transition: all 0.3s ease-in-out;
 }
 
-/* 📌 모달 배경 */
-/* .custom-backdrop {
-    background: rgba(0, 0, 0, 0.6);
-} */
-
-/* 📌 모달 컨테이너 */
 .custom-modal-container {
     max-width: 480px;
     border-radius: 12px;
     overflow: hidden;
-    /* background: rgba(0, 0, 0, 0.6); */
     animation: fadeIn 0.3s ease-in-out;
 }
 
-/* 📌 모달 헤더 (X 버튼 제거) */
 .custom-modal-header {
     background: #B47B53;
     color: white;
@@ -66,12 +56,10 @@
     font-weight: bold;
 }
 
-/* 📌 모달 내용 (위/아래 여백 제거) */
 .custom-modal-content {
     padding: 15px 20px;
 }
 
-/* 📌 전체 폼 컨테이너 스타일 */
 .form-container {
     max-width: 400px;
     margin: 20px auto;
@@ -81,7 +69,6 @@
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-/* 📌 입력 필드 및 라벨 스타일 */
 .form-group {
     margin-bottom: 15px;
 }
@@ -92,7 +79,6 @@
     margin-bottom: 5px;
 }
 
-/* 📌 인풋 필드 및 셀렉트 스타일 */
 input[type="text"],
 select,
 textarea {
@@ -111,7 +97,6 @@ textarea:focus {
     outline: none;
 }
 
-/* 📌 텍스트 영역 스타일 */
 textarea {
     min-height: 100px;
     resize: vertical;
@@ -133,7 +118,6 @@ textarea {
     box-shadow: 0 0 5px rgba(0, 112, 210, 0.5);
 }
 
-/* 📌 버튼 그룹 */
 .button-group {
     display: flex;
     justify-content: space-between;

@@ -17,5 +17,4 @@
     <lightningMessageFields>
         <fieldName>progressValue</fieldName>
     </lightningMessageFields>
-
 </LightningMessageChannel>

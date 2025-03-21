@@ -55,9 +55,7 @@ public without sharing class SeoulPopulationService {
     
     private static Integer safeIntegerConversion(Object value) {
         try {
-            // Decimal.valueOf()를 사용하여 문자열을 안전하게 Decimal로 변환
             Decimal decimalValue = Decimal.valueOf(String.valueOf(value));
-            // Decimal 값을 Integer로 변환 (반올림)
             return decimalValue.intValue();
         } catch (Exception e) {
             System.debug('Failed to convert to integer: ' + e.getMessage());

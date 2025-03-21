@@ -1,21 +1,15 @@
 <template>
     <div class="knowledge-wrapper">
-        <!-- 📌 '일반 지식 보기' 버튼 -->
         <div class="toggle-button" onclick={toggleKnowledgeList}>
             일반 문의
         </div>
-
-        <!-- ✅ 일반 지식 리스트 -->
         <div class="knowledge-container">
             <div class="knowledge-list">
                 <template for:each={knowledgeList} for:item="knowledge">
                     <div key={knowledge.id} class="knowledge-item">
-                        <!-- 🔹 지식 제목 (클릭하면 상세 내용 토글) -->
                         <div class="knowledge-title" onclick={toggleKnowledgeDetail} data-id={knowledge.id}>
                             <strong><span class="knowledge-label">K</span>{knowledge.title}</strong>
                         </div>
-
-                        <!-- 🔹 지식 상세 내용 -->
                         <div class="knowledge-detail" data-id={knowledge.id}>
                             <span class="answer-label-one">Q</span>
                             <lightning-formatted-rich-text value={knowledge.question}></lightning-formatted-rich-text>

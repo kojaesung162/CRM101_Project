@@ -1,8 +1,8 @@
 .chart-wrapper {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* 2개의 열 */
-    grid-template-rows: repeat(3, auto); /* 3개의 행 */
-    gap: 10px; /* 차트 간 여백 */
+    grid-template-columns: repeat(2, 1fr); 
+    grid-template-rows: repeat(3, auto); 
+    gap: 10px; 
     justify-items: center;
     align-items: center;
     width: 100%;

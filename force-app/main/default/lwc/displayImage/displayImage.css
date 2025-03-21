@@ -2,9 +2,7 @@
     width: 100%;
     height: 30%;
     display: flex;
-
-    justify-content: center; /* 🔥 가로 중앙 정렬 */
-    align-items: center; /* 🔥 세로 중앙 정렬 */
-
-    margin: auto; /* 🔥 컨테이너 자체를 중앙으로 정렬 */
+    justify-content: center; 
+    align-items: center; 
+    margin: auto;
 }

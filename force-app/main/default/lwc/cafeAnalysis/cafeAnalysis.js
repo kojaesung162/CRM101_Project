@@ -9,7 +9,7 @@ import updateSearchLocation from '@salesforce/apex/LeadSearchUpdater.updateSearc
 
 export default class BusinessHeatmap extends LightningElement {
     @track placeName = '';
-    @track selectedDongCode = ''; // 동코드 저장
+    @track selectedDongCode = ''; 
     @track selectedTotalcount = '';
     @track leadId = '';
     hasRendered = false;
@@ -30,7 +30,6 @@ export default class BusinessHeatmap extends LightningElement {
         }
         this.d3Initialized = true;
 
-        // 🔥 D3.js CDN을 동적으로 로드
         Promise.all([
             this.loadD3('https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js')
         ])
@@ -48,14 +47,13 @@ export default class BusinessHeatmap extends LightningElement {
 
         if (leadId) {
             this.leadId = leadId;
-            console.log(`📌 URL에서 Lead ID 추출: ${this.leadId}`);
         }
     }
 
     loadMapboxIframe() {
         const mapContainer = this.template.querySelector('.map-container');
         if (!mapContainer) {
-            console.error(":압정: map-container를 찾을 수 없습니다.");
+            console.error("map-container를 찾을 수 없습니다.");
             return;
         }
         while (mapContainer.firstChild) {
@@ -76,32 +74,25 @@ export default class BusinessHeatmap extends LightningElement {
         if (event.data && event.data.placeName) {
             this.placeName = event.data.placeName;
                 this.fetchBusinessData();
-
-            //서초 102 119 196 72 양재 117 138
-            //
         }
     }
 
     fetchBusinessData() {
         getBusinessDataByDistrict({ placeName: this.placeName })
             .then((result) => {
-                console.log('✅ Business Data:', result);
                 if (result) {
                     this.selectedDongCode = result.Name;
                     this.selectedTotalcount = result.Totalcount__c;
-                    console.log('✅ 동 코드:', this.selectedDongCode);
                     this.fetchPopulationData();
-
-                    // 🔥 Lead ID와 placeName이 존재하면 SearchLocation 업데이트 실행
                     if (this.leadId && this.placeName) {
                         this.updateLeadSearchLocation();
                     }
                 } else {
-                    console.warn('⚠️ 동 코드가 없음! 데이터 확인 필요');
+                    console.warn('동 코드가 없음! 데이터 확인 필요');
                 }
             })
             .catch((error) => {
-                console.error('❌ Error fetching business data:', error);
+                console.error('Error fetching business data:', error);
             });
     }
     
@@ -118,26 +109,23 @@ export default class BusinessHeatmap extends LightningElement {
                 selectedTotalcount: this.selectedTotalcount,
                 selectedDong: this.placeName
             };
-
-            console.log("📡 필터 + 인구 데이터 전송:", payload);
             publish(this.messageContext, PopulationFilterChannel, payload);
         })
         .catch((error) => {
-            console.error('❌ 인구 데이터 가져오기 실패:', error);
+            console.error('데이터 가져오기 실패:', error);
         });
     }
 
-    // ✅ Lead ID가 있을 때 SearchLocation__c 업데이트 실행
     updateLeadSearchLocation() {
         updateSearchLocation({ 
             leadId: this.leadId, 
             newLocation: this.placeName 
         })
         .then(() => {
-            console.log(`✅ Lead (${this.leadId})의 SearchLocation__c 업데이트 완료: ${this.placeName}`);
+            console.log(`Lead (${this.leadId})의 업데이트: ${this.placeName}`);
         })
         .catch(error => {
-            console.error(`❌ Lead SearchLocation 업데이트 실패: ${error}`);
+            console.error(`Lead SearchLocation 업데이트 실패: ${error}`);
         });
     }
 
@@ -157,13 +145,13 @@ export default class BusinessHeatmap extends LightningElement {
             .attr('height', 330); 
 
             svg.append("text")
-            .attr("x", 40) // x 위치 조정
-            .attr("y", 20) // y 위치 조정
-            .attr("text-anchor", "middle") // 텍스트 중앙 정렬
+            .attr("x", 40) 
+            .attr("y", 20) 
+            .attr("text-anchor", "middle") 
             .attr("font-size", "14px")
             .attr("font-weight", "bold")
             .attr("fill", "white")
-            .text("카페"); // 원하는 제목 텍스트
+            .text("카페"); 
     
         const defs = svg.append("defs");
         const gradient = defs.append("linearGradient")

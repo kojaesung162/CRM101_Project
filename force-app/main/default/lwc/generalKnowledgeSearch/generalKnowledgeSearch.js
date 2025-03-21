@@ -2,11 +2,9 @@ import { LightningElement, track, wire } from 'lwc';
 import getKnowledgeByProductAndSearch from '@salesforce/apex/ProductKnowledgeFetcher.getKnowledgeByProductAndSearch';
 
 export default class GeneralKnowledge extends LightningElement {
-    @track isListVisible = false; // ✅ 리스트 전체 토글 상태
-    @track selectedKnowledgeId = null; // ✅ 선택된 지식 ID
-    @track knowledgeList = []; // ✅ 일반 지식 리스트
+    @track isListVisible = false; 
+    @track knowledgeList = [];
 
-    // 🔹 Apex 호출해서 일반 지식 목록 가져오기
     @wire(getKnowledgeByProductAndSearch, { 
         productName: '',
         rank: 0 
@@ -19,14 +17,13 @@ export default class GeneralKnowledge extends LightningElement {
                 summary: knowledge.Summary,
                 question: knowledge.Question__c || '❓ 질문이 없습니다.',
                 answer: knowledge.Answer__c || '💡 답변이 없습니다.',
-                expanded: false // ✅ 기본적으로 닫힘
+                expanded: false 
             }));
         } else if (error) {
-            console.error('❌ 일반 지식 가져오기 실패:', error);
+            console.error('❌ 일반 문의 가져오기 실패:', error);
         }
     }
 
-    // 🔹 "📚 일반 지식 보기" 버튼 클릭 시 리스트 전체 토글
     toggleKnowledgeList() {
         this.isListVisible = !this.isListVisible;
         const listElement = this.template.querySelector('.knowledge-list');
@@ -35,7 +32,6 @@ export default class GeneralKnowledge extends LightningElement {
         }
     }
 
-    // 🔹 특정 지식 클릭 시 상세 내용 토글
     toggleKnowledgeDetail(event) {
         const selectedId = event.currentTarget.dataset.id;
         

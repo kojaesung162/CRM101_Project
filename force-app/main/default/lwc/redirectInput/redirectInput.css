@@ -1,6 +1,6 @@
 .custom-yellow-button {
-    background-color: #FFD700; /* 🌟 골드 색상 */
-    color: black; /* 🔥 글자 색 */
+    background-color: #FFD700; 
+    color: black; 
     font-weight: bold;
     border: none;
     padding: 10px 20px;
@@ -10,7 +10,7 @@
 }
 
 .custom-yellow-button:hover {
-    background-color: #FFC107; /* ✨ 조금 더 밝은 노란색 (호버 효과) */
+    background-color: #FFC107; 
 }
 
 .custom-input {
@@ -23,7 +23,7 @@
 }
 
 .custom-input:focus {
-    border-color: #FFD700; /* ✨ 포커스 시 골드 색상 */
+    border-color: #FFD700; 
     outline: none;
 }
 

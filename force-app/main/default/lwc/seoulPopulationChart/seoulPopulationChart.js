@@ -3,8 +3,6 @@ import { subscribe, MessageContext } from 'lightning/messageService';
 import POPULATION_FILTER_CHANNEL from '@salesforce/messageChannel/PopulationFilterChannel__c';
 
 export default class PopulationChart extends LightningElement {
-    @track selectedDateTime = "";
-    @track selectedDongCode = "";
     @track populationData = {};
     d3Initialized = false;
     d3Url = 'https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js';
@@ -30,13 +28,9 @@ export default class PopulationChart extends LightningElement {
     }
 
     handleMessage(message) {
-        console.log("📡 LMS 데이터 수신:", message);
-        this.selectedDateTime = message.selectedDateTime;
-        this.selectedDongCode = message.selectedDongCode;
         this.populationData = message.populationData;
 
         if (this.populationData) {
-            console.log("📊 차트 데이터 업데이트:", this.populationData);
             this.renderCharts();
         } else {
             console.warn("⚠️ 인구 데이터가 없음!");
@@ -50,7 +44,6 @@ export default class PopulationChart extends LightningElement {
             const script = document.createElement('script');
             script.src = this.d3Url;
             script.onload = () => {
-                console.log('D3.js Loaded');
                 this.d3Initialized = true;
                 resolve();
             };
@@ -68,7 +61,7 @@ export default class PopulationChart extends LightningElement {
         const containers = this.template.querySelectorAll('.chart-container');
 
         containers.forEach((container) => {
-            const hour = container.getAttribute('data-hour'); // 🔥 차트별 시간대 가져오기
+            const hour = container.getAttribute('data-hour'); 
             const dataForHour = this.populationData[hour];
 
             if (!dataForHour) return;
@@ -87,7 +80,6 @@ export default class PopulationChart extends LightningElement {
         const chartWidth = svgWidth - margin.left - margin.right;
         const chartHeight = svgHeight - margin.top - margin.bottom;
     
-        // 기존 SVG 삭제 후 다시 그리기
         container.innerHTML = '';
         const svg = d3.select(container)
             .append('svg')
@@ -117,7 +109,6 @@ export default class PopulationChart extends LightningElement {
             .range([margin.left, chartWidth + margin.left])
             .nice();
     
-        // 차트 제목
         svg.append('text')
             .attr('x', svgWidth / 2)
             .attr('y', 20)
@@ -126,21 +117,12 @@ export default class PopulationChart extends LightningElement {
             .text(`${hour}시`)
             .style('text-anchor', 'middle');
     
-        // X축 추가
         svg.append('g')
             .attr('transform', `translate(0,${chartHeight + margin.top})`)
             .call(d3.axisBottom(xScale).ticks(5).tickFormat(d => Math.abs(d)))
             .selectAll('text')
             .style('font-size', '10px');
-    
-        // // Y축 추가
-        // svg.append('g')
-        //     .attr('transform', `translate(${margin.left},0)`)
-        //     .call(d3.axisLeft(yScale))
-        //     .selectAll('text')
-        //     .style('font-size', '10px');
-    
-        // 남성 바 추가
+
         svg.selectAll('.male-bar')
             .data(data)
             .enter()
@@ -152,7 +134,6 @@ export default class PopulationChart extends LightningElement {
             .attr('height', yScale.bandwidth())
             .attr('fill', d => d.male === Math.min(...maleData) ? '#00008B' : '#3498DB');
     
-        // 여성 바 추가
         svg.selectAll('.female-bar')
             .data(data)
             .enter()
@@ -164,8 +145,6 @@ export default class PopulationChart extends LightningElement {
             .attr('height', yScale.bandwidth())
             .attr('fill', d => d.female === Math.max(...femaleData) ? '#FF69B4' : '#E74C3C');
             
-    
-        // 연령대 라벨 (Y축 가운데 배치)
         svg.selectAll('.age-label')
             .data(data)
             .enter()
@@ -177,6 +156,5 @@ export default class PopulationChart extends LightningElement {
             .style('font-size', '12px')
             .style('font-weight', 'bold')
             .text(d => d.age);
-    }
-    
+    }   
 }

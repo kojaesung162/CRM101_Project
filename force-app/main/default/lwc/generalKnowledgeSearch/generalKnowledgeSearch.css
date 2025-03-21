@@ -1,4 +1,3 @@
-/* ✅ 부모 컨테이너: toggle-button과 knowledge-container를 포함 */
 .knowledge-wrapper {
     position: relative;
     width: 100%;
@@ -7,37 +6,34 @@
     align-items: center;
 }
 
-/* ✅ '일반 문의' 버튼 (knowledge-container와 동일한 위치) */
 .toggle-button {
     background: #B47B53;
     width: 100%;
-    max-width: 600px; /* 부모 크기에 맞게 조정 */
+    max-width: 600px; 
     color: white;
     border: none;
-    border-radius: 15px 15px 0 0; /* ✅ 상단만 둥글게 */
+    border-radius: 15px 15px 0 0; 
     font-size: 16px;
     cursor: pointer;
     font-weight: bold;
     transition: background 0.3s;
     padding: 12px 0;
-    position: absolute; /* ✅ knowledge-container 위로 배치 */
+    position: absolute; 
     top: 0;
-    z-index: 10; /* ✅ 리스트 위에 위치 */
+    z-index: 10; 
     text-align: center;
 }
 
-/* ✅ knowledge-container (toggle-button과 같은 위치) */
 .knowledge-container {
     background: white;
     border-radius: 15px;
     width: 100%;
     max-width: 600px;
-    margin-top: 40px; /* ✅ 버튼과 겹치지 않도록 여백 */
+    margin-top: 40px; 
     position: relative;
     z-index: 5;
 }
 
-/* ✅ 리스트 컨테이너 */
 .knowledge-list {
     background-color: white;
     overflow: hidden;
@@ -49,7 +45,6 @@
     width: 100%;
 }
 
-/* ✅ 리스트가 보일 때 */
 .knowledge-list.show {
     max-height: 500px;
     opacity: 1;
@@ -57,11 +52,9 @@
 }
 
 .knowledge-list::-webkit-scrollbar {
-    display: none; /* ✅ Chrome, Safari, Edge */
+    display: none; 
 }
 
-
-/* ✅ 지식 항목 스타일 */
 .knowledge-item {
     background: #5d4534;
     border: 1px solid #ccc;
@@ -71,18 +64,16 @@
     cursor: pointer;
     transition: all 0.3s ease-in-out;
 }
-/* ✅ 지식 제목 */
+
 .knowledge-title {
     background-color: #5d4534;
     color: white;
     font-weight: bold;
     padding: 8px;
     cursor: pointer;
-    text-align: left; /* 왼쪽 정렬 */
+    text-align: left; 
 }
 
-
-/* ✅ 지식 상세 내용 (기본적으로 숨김) */
 .knowledge-detail {
     padding-inline: 12px;
     background-color: white;
@@ -92,12 +83,11 @@
     border: 3px solid black;
     border-radius: 8px;
     transition: max-height 0.4s ease-in-out, opacity 0.3s ease-in-out;
-    text-align: left; /* 왼쪽 정렬 */
+    text-align: left; 
 }
 
-/* ✅ 지식 상세 내용이 보일 때 */
 .knowledge-detail.show {
-    max-height: 300px; /* 적절한 높이 설정 */
+    max-height: 300px; 
     opacity: 1;
 }
 
@@ -112,7 +102,6 @@
     color: blue;
 }
 
-/* 🔹 답변 앞 A 아이콘 */
 .answer-label-two {
     font-weight: bold;
     color: red;

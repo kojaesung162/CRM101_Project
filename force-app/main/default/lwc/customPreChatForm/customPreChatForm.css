@@ -1,20 +1,3 @@
-/* .prechat-form {
-    padding: 20px;
-    background: #f4f4f4;
-    border-radius: 8px;
-    max-width: 400px;
-    margin: 0 auto;
-    text-align: center;
-}
-
-.prechat-form lightning-input {
-    margin-bottom: 10px;
-}
-
-.prechat-form lightning-button {
-    margin-top: 20px;
-} */
-
 .prechat-form {
     text-align: center;
     padding: 20px;
@@ -54,7 +37,7 @@
 }
 
 .input-group textarea {
-    height: 100px; /* 조절 가능 */
+    height: 100px; 
 }
 
 button {
@@ -63,7 +46,7 @@ button {
     border: none;
     border-radius: 4px;
     color: white;
-    background-color: #5d4534; /* 브랜드 색상에 맞춤 */
+    background-color: #5d4534;
     cursor: pointer;
     font-weight: bold;
 }
@@ -73,7 +56,7 @@ button:hover {
 }
 
 .header-title {
-    font-size: 20px; /* 글씨 크기 조정 */
-    text-align: center; /* 중앙 정렬 */
-    font-weight: bold; /* 글씨 굵게 */
+    font-size: 20px; 
+    text-align: center; 
+    font-weight: bold; 
 }

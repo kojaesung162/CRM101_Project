@@ -1,12 +1,9 @@
 <template>
     <div class="market-table">
         <table>
-            <!-- 🔥 첫 번째 행: 동 이름 (병합) -->
             <tr>
                 <th colspan="5" class="market-name">{marketName}</th>
             </tr>
-
-            <!-- 🔥 두 번째 행: 숫자 값 & 등급 -->
             <tr>
                 <td>{storeCount}</td>
                 <td>{population}</td>
@@ -14,8 +11,6 @@
                 <td>{femalePercentage}%</td>
                 <td class={gradeClass}>{marketGrade}</td>
             </tr>
-
-            <!-- 🔥 세 번째 행: 설명 -->
             <tr>
                 <td>카페 수</td>
                 <td>유동인구</td>

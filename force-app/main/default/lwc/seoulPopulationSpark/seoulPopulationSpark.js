@@ -8,9 +8,6 @@ export default class SeoulPopulationChart extends LightningElement {
     @track data;
     subscription = null;
 
-    selectedDateTime;
-    selectedDongCode;
-
     @wire(MessageContext)
     messageContext;
 
@@ -35,14 +32,9 @@ export default class SeoulPopulationChart extends LightningElement {
         }
     }
 
-    handleMessage(message) {
-        console.log("📡 LMS 데이터 수신:", message);
-        
-        this.selectedDateTime = message.selectedDateTime;
-        this.selectedDongCode = message.selectedDongCode;
-        this.data = message.populationData; // 📌 LMS에서 받은 JSON 데이터를 바로 사용
-
-        this.renderCharts(); // 📌 데이터가 들어오면 바로 차트 렌더링
+    handleMessage(message) {        
+        this.data = message.populationData; 
+        this.renderCharts();
     }
 
     renderCharts() {
@@ -52,7 +44,7 @@ export default class SeoulPopulationChart extends LightningElement {
     
         containers.forEach((container) => {
             container.innerHTML = '';
-            const ageGroup = container.getAttribute('data-age-group'); // 🔥 10대 ~ 60대
+            const ageGroup = container.getAttribute('data-age-group');
             const { min, max } = this.findAgeGroupBounds(ageGroup);
             this.renderChart(container, ageGroup, min, max);
         });
@@ -63,19 +55,17 @@ export default class SeoulPopulationChart extends LightningElement {
         const svgWidth = containerRect.width || 400;
         const svgHeight = containerRect.height || 200;
     
-        const margin = { top: 40, right: 30, bottom: 40, left: 70 }; // 🔥 왼쪽 마진 증가
+        const margin = { top: 40, right: 30, bottom: 40, left: 70 }; 
     
         const chartWidth = svgWidth - margin.left - margin.right;
         const chartHeight = svgHeight - margin.top - margin.bottom;
     
-        // 기존 SVG 삭제 후 다시 그리기
         container.innerHTML = '';
         const svg = d3.select(container)
             .append('svg')
             .attr('width', svgWidth)
             .attr('height', svgHeight);
     
-        // 🔥 차트 제목 추가
         svg.append('text')
             .attr('x', svgWidth / 2)
             .attr('y', 20)
@@ -117,29 +107,18 @@ export default class SeoulPopulationChart extends LightningElement {
                 .attr('cy', d => y(d))
                 .attr('r', 4)
                 .attr('fill', color);
-    
-            // svg.selectAll('labels')
-            //     .data(data)
-            //     .enter().append('text')
-            //     .attr('x', (d, i) => x(hours[i]))
-            //     .attr('y', d => y(d) - 10)
-            //     .attr('text-anchor', 'middle')
-            //     .style('font-size', '10px')
-            //     .text(d => d);
         };
     
         createPath(maleData, 'steelblue');
         createPath(femaleData, 'crimson');
     
-        // ✅ **X축이 보이게 설정**
         svg.append('g')
             .attr('transform', `translate(0,${chartHeight + margin.top+5})`)
             .call(d3.axisBottom(x).tickSize(6))
             .selectAll('text')
             .style('font-size', '10px')
             .attr('dy', '0.5em');
-    
-        // ✅ **Y축 조정**
+
         svg.append('g')
             .attr('transform', `translate(${margin.left- 5},0)`)
             .call(d3.axisLeft(y).ticks(5))
@@ -147,7 +126,6 @@ export default class SeoulPopulationChart extends LightningElement {
             .style('font-size', '10px');
     }
     
-
     findMaxValue() {
         const hours = ['09', '11', '13', '15', '17', '19','21'];
         let maxVal = 0;
@@ -159,7 +137,7 @@ export default class SeoulPopulationChart extends LightningElement {
                 maxVal = Math.max(maxVal, maleVal, femaleVal);
             }
         }
-        return Math.ceil(maxVal / 1000) * 1000; // 📌 깔끔한 Y축 값 유지
+        return Math.ceil(maxVal / 1000) * 1000; 
     }
 
     findAgeGroupBounds(ageGroup) {

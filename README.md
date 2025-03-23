@@ -2,6 +2,8 @@
 ## 기업 개요
 <img src="https://github.com/user-attachments/assets/b7a26122-8123-4aae-89be-87406a48f0f2" width="75%"/>
 <img src="https://github.com/user-attachments/assets/0d249e7c-7083-4bfa-8b3d-e8a7f6fdfc41" width="75%"/>
+![image](https://github.com/user-attachments/assets/a34c2970-831c-4bef-9cc7-88ea78b575a8)
+![image](https://github.com/user-attachments/assets/5de0c386-b492-4058-97cf-b7c664082416)
 
 
 ## 구현 결과 – Sales 

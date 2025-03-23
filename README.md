@@ -1,14 +1,8 @@
 # CRM101_Project
 ## 기업 개요
 <img src="https://github.com/user-attachments/assets/b7a26122-8123-4aae-89be-87406a48f0f2" width="75%"/>
-<table style="border-collapse: collapse;">
-  <tr>
-    <td style="border: none;"><img src="https://github.com/user-attachments/assets/a34c2970-831c-4bef-9cc7-88ea78b575a8" alt="설명1" width="100%" /></td>
-    <td style="border: none;"><img src="https://github.com/user-attachments/assets/5de0c386-b492-4058-97cf-b7c664082416" alt="설명2" width="100%" /></td>
-  </tr>
-</table>
-<div><img src="https://github.com/user-attachments/assets/b7a26122-8123-4aae-89be-87406a48f0f2" width="75%"/><img src="https://github.com/user-attachments/assets/b7a26122-8123-4aae-89be-87406a48f0f2" width="75%"/></div>
-<div><img src="https://github.com/user-attachments/assets/b7a26122-8123-4aae-89be-87406a48f0f2" width="75%"/></div>
+<img src="https://github.com/user-attachments/assets/a34c2970-831c-4bef-9cc7-88ea78b575a8" width="75%"/>
+<img src="https://github.com/user-attachments/assets/5de0c386-b492-4058-97cf-b7c664082416" width="75%"/>
 <img src="https://github.com/user-attachments/assets/0d249e7c-7083-4bfa-8b3d-e8a7f6fdfc41" width="75%"/>
 
 ## 구현 결과 – Sales 

@@ -38,7 +38,4 @@
 - 고객이 제품 관련 FAQ를 보면서 스스로 문제점 해결 -> 엔지니어 리소스 낭비 방지
 - 고객 개개인을 위한 맞춤형 고객 문의 페이지를 제공 -> 경쟁사들과 차별화
 - 여러 채널로 들어오는 A/S 문의를 단일화 ->  A/S 팀 업무 효율성 증가
-<video width="320" height="240" controls>
-  <source src="https://youtube.com/shorts/u0wzjz3R1284" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
+[Watch this YouTube Short!](https://www.youtube.com/shorts/u0wzjz3R1284)

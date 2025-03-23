@@ -7,6 +7,8 @@
     <td style="border: none;"><img src="https://github.com/user-attachments/assets/5de0c386-b492-4058-97cf-b7c664082416" alt="설명2" width="100%" /></td>
   </tr>
 </table>
+<div><img src="https://github.com/user-attachments/assets/b7a26122-8123-4aae-89be-87406a48f0f2" width="75%"/></div>
+<div><img src="https://github.com/user-attachments/assets/b7a26122-8123-4aae-89be-87406a48f0f2" width="75%"/></div>
 <img src="https://github.com/user-attachments/assets/0d249e7c-7083-4bfa-8b3d-e8a7f6fdfc41" width="75%"/>
 
 ## 구현 결과 – Sales 

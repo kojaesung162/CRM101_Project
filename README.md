@@ -40,6 +40,6 @@
 - 여러 채널로 들어오는 A/S 문의를 단일화 ->  A/S 팀 업무 효율성 증가
 
 <img src="https://github.com/user-attachments/assets/b2e2757e-9658-4121-8490-4a8ec6b0138e" width="50%" height="auto">
-<br>
+
 <img src="https://github.com/user-attachments/assets/752f283e-b948-4212-9b89-a6145d0247a2" width="50%" height="auto">
 

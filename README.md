@@ -25,6 +25,9 @@
 - 영업팀 업무 시간 단축 -> 영업 활동에 집중 가능
 - 고객의 관심 유도
 - 영업팀이 고객 정보뿐만 아니라 상권분석 정보까지 통합적으로 관리하고 활용할 수 있는 환경을 제공
+<img src="https://github.com/user-attachments/assets/8af48a10-ee15-4f54-9eb4-616995f8ffa8" width="50%" height="auto">
+<br><br>
+<img src="https://github.com/user-attachments/assets/806873b7-bae8-493b-8bb3-c9f6a452e5bf" width="75%"/>
 
 ## 구현 결과 – Service
 ### 기능
@@ -40,6 +43,6 @@
 - 여러 채널로 들어오는 A/S 문의를 단일화 ->  A/S 팀 업무 효율성 증가
 
 <img src="https://github.com/user-attachments/assets/b2e2757e-9658-4121-8490-4a8ec6b0138e" width="50%" height="auto">
-
+<br><br>
 <img src="https://github.com/user-attachments/assets/752f283e-b948-4212-9b89-a6145d0247a2" width="50%" height="auto">
 

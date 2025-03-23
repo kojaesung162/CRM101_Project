@@ -38,5 +38,7 @@
 - 고객이 제품 관련 FAQ를 보면서 스스로 문제점 해결 -> 엔지니어 리소스 낭비 방지
 - 고객 개개인을 위한 맞춤형 고객 문의 페이지를 제공 -> 경쟁사들과 차별화
 - 여러 채널로 들어오는 A/S 문의를 단일화 ->  A/S 팀 업무 효율성 증가
-  
-![2025-03-24023716-ezgif com-video-to-gif-converter](https://github.com/user-attachments/assets/b2e2757e-9658-4121-8490-4a8ec6b0138e)
+
+<img src="https://github.com/user-attachments/assets/b2e2757e-9658-4121-8490-4a8ec6b0138e" width="50%" height="auto">
+<img src="https://github.com/user-attachments/assets/752f283e-b948-4212-9b89-a6145d0247a2" width="50%" height="auto">
+
